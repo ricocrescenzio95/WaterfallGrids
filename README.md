@@ -21,8 +21,7 @@
 </p>
 
 <p align="center">
-  <br>
-<img src="./Sources/WaterfallGrids/Documentation.docc/Resources/all@3x.png" alt="Markdownify" width="800">
+<img src="./Sources/WaterfallGrids/Documentation.docc/Resources/all@3x.png" width="800">
 </p>
 
 ## Features
@@ -34,12 +33,10 @@
 - Support scroll view system modifiers such as `scrollTargetLayout`, `scrollTargetBehavior`, `scrollTransition` and so on
 - Section header and footer
 
+| Items roerder | Custom scroll paging and transitions |
+| --- | --- |
+| <img src="./Sources/WaterfallGrids/Documentation.docc/Resources/reorder.gif" height=600> | <img src="./Sources/WaterfallGrids/Documentation.docc/Resources/advancedui.gif" height=600> |
 
-<p align="center">
-<video height="500" controls autoplay loop>
-  <source src="./Sources/WaterfallGrids/Documentation.docc/Resources/reorder.mp4" type="video/mp4">
-</video>
-</p>
 
 ## Installation
 
