@@ -1,6 +1,6 @@
 # Waterfall Grids
 
-### A SwiftUI wrapper of UITextField that allows more customization
+### Waterfall grid layout with lazy loading support for SwiftUI
 
 <p>
   <a href="https://github.com/ricocrescenzio95/WaterfallGrids/releases">
