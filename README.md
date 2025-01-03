@@ -35,7 +35,7 @@
 
 | Items roerder | Custom scroll paging and transitions |
 | --- | --- |
-| <img src="./Sources/WaterfallGrids/Documentation.docc/Resources/reorder.gif" height=600> | <img src="./Sources/WaterfallGrids/Documentation.docc/Resources/advancedui.gif" height=600> |
+| <img src="./Sources/WaterfallGrids/Documentation.docc/Resources/reorder.gif"> | <img src="./Sources/WaterfallGrids/Documentation.docc/Resources/advancedui.gif"> |
 
 
 ## Installation
