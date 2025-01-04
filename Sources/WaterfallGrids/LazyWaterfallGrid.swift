@@ -83,6 +83,7 @@ public struct LazyWaterfallGrid<
   /// Creates a new grid view with the given items and data.
   /// - Parameters:
   ///   - items: The layout of the grid. You can use either ``WaterfallItems/columns(_:)`` or ``WaterfallItems/rows(_:)`` passing the number of items you need to tell the view how many rows or column are needed.  ///   - spacing: The spacing between items in the grid. If `nil`, the grid will use the default spacing.
+  ///   - spacing: The spacing between items in the grid. If `nil`, the grid will use the default spacing.
   ///   - data: The data to display in the grid.
   ///   - content: A view builder that creates the content of each item in the grid.
   public init(
@@ -98,7 +99,8 @@ public struct LazyWaterfallGrid<
     switch items {
       case .columns(let columns):
       HStack(alignment: .top, spacing: spacing) {
-        ForEach(0..<columns.count, id: \.self) { index in
+        ForEach(columns.indexeds()) { column in
+          let index = column.index
           let data = ArrayGridSlice(source: data, column: index, totalColumns: columns.count)
           waterfallItem(
             .init(
@@ -122,7 +124,8 @@ public struct LazyWaterfallGrid<
       }
       case .rows(let rows):
       VStack(alignment: .leading, spacing: spacing) {
-        ForEach(0..<rows.count, id: \.self) { index in
+        ForEach(rows.indexeds()) { row in
+          let index = row.index
           let data = ArrayGridSlice(source: data, column: index, totalColumns: rows.count)
           waterfallItem(
             .init(

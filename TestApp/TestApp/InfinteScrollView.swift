@@ -35,11 +35,6 @@ struct InfinteScrollView: View {
             ) { item in
               RectView(item: item, isVertical: gridItems.isVertical)
                 .transition(.opacity.animation(settings.animation))
-                .onAppear {
-                  if item.id == items.last?.id {
-                    loadMore()
-                  }
-                }
             }
             .padding()
           } header: {
@@ -48,6 +43,10 @@ struct InfinteScrollView: View {
               .padding(.vertical)
               .background(.bar)
           }
+          Color.red.frame(height: 2)
+            .onAppear {
+              loadMore()
+            }
           if isLoadingMore {
             ProgressView()
               .padding()
@@ -71,11 +70,13 @@ struct InfinteScrollView: View {
   
   private func loadMore() {
     guard !isLoadingMore else { return }
+    isLoadingMore = true
     Task {
-      isLoadingMore = true
       try await Task.sleep(for: .seconds(3))
       isLoadingMore = false
-      items.append(contentsOf: Item.from(start: items.max()!.id + 1))
+      let new = Item.from(start: items.max()!.id + 1)
+      items.append(contentsOf: new)
+      print("Added \(new.count) items", new.map(\.id))
     }
   }
 }

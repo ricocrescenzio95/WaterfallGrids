@@ -4,7 +4,6 @@ import WaterfallGrids
 struct iOS18APIView: View {
   @State private var gridItems: WaterfallItems = .columns(.init(repeating: .init(), count: 4))
   @State private var items = Item.from(start: 0, count: 100)
-  @State private var frames = [Item.ID: CGRect]()
   @State private var isScrollToPresented = false
   @State private var scrollPosition = ScrollPosition()
   @State private var scrollToID: Item.ID = 0
