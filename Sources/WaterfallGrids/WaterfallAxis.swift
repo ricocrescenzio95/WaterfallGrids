@@ -150,3 +150,36 @@ extension WaterfallItems {
     }
   }
 }
+
+// MARK: - Utilities
+
+struct Indexed<T>: Identifiable {
+  struct ID: Hashable {
+    var rawValue: Int
+  }
+  var element: T
+  var id: ID
+  var index: Int
+  
+  fileprivate init(_ element: T, index: Int) {
+    self.element = element
+    self.index = index
+    id = .init(rawValue: index)
+  }
+}
+
+extension [WaterfallItems.Column] {
+  /// Used in the ``WaterfallGrid`` and ``LazyWaterfallGrid`` to enumerate the columns and ensure the ID of the element
+  /// doesn't conflict with developer's defined IDs..
+  func indexeds() -> [Indexed<WaterfallItems.Column>] {
+    enumerated().map { Indexed($1, index: $0) }
+  }
+}
+
+extension [WaterfallItems.Row] {
+  /// Used in the ``WaterfallGrid`` and ``LazyWaterfallGrid`` to enumerate the columns and ensure the ID of the element
+  /// doesn't conflict with developer's defined IDs.
+  func indexeds() -> [Indexed<WaterfallItems.Row>] {
+    enumerated().map { Indexed($1, index: $0) }
+  }
+}
